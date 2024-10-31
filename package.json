@@ -1,5 +1,16 @@
 {
+  "name": "bytebank",
+  "version": "1.0.0",
+  "main": "dist/js/index.js",
+  "scripts": {
+    "start": "node dist/js/index.js",
+    "build": "tsc"
+  },
   "dependencies": {
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "undici-types": "^6.20.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.0.0"
   }
 }

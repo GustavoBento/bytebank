@@ -1,4 +1,5 @@
 import { Armazenador } from "./Armazenador.js";
+import { ValidaDebito, ValidaDeposito } from "./Decorators.js";
 import { GrupoTransacao } from "./GrupoTransacao.js";
 import { TipoTransacao } from "./TipoTransacao.js";
 import { Transacao } from "./Transacao.js";
@@ -25,23 +26,14 @@ export class Conta {
             return new Date();
       }
 
+      @ValidaDebito
       debitar(valor: number): void {
-            if (valor <= 0) {
-                throw new Error("O valor a ser debitado deve ser maior que zero!");
-            }
-            if (valor > this.saldo) {
-                throw new Error("Saldo insuficiente!");
-            }
-        
             this.saldo -= valor;
             Armazenador.salvar("saldo", this.saldo.toString());
         }
         
+      @ValidaDeposito
       depositar(valor: number): void {
-            if (valor <= 0) {
-                throw new Error("O valor a ser depositado deve ser maior que zero!");
-            }
-        
             this.saldo += valor;
             Armazenador.salvar("saldo", this.saldo.toString());
       }

@@ -4,6 +4,11 @@ import { GrupoTransacao } from "../types/GrupoTransacao.js";
 import { formatarMoeda, formatarData } from "../utils/formatters.js";
 
 const elementoRegistroTransacoesExtrato: HTMLElement = document.querySelector(".extrato .registro-transacoes");
+const nomeCompleto = document.querySelector("#nome") as HTMLElement;
+const primeiroNome = document.querySelector("#primeiro-nome") as HTMLElement;
+
+nomeCompleto.textContent = Conta.getNomeCompleto();
+primeiroNome.textContent = Conta.getPrimeiroNome();
 
 renderizarExtrato();
 function renderizarExtrato(): void {

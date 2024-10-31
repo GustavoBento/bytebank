@@ -6,6 +6,7 @@ import { Transacao } from "./Transacao.js";
 
 export class Conta {
       protected nome: string;
+      protected primeiroNome: string;
       protected saldo: number = Armazenador.obter<number>("saldo") || 0;
       private transacoes: Transacao[] = Armazenador.obter<Transacao[]>(("transacoes"), (key: string, value: any) => {
             if(key === "data") {
@@ -16,6 +17,11 @@ export class Conta {
 
       constructor(nome: string) {
             this.nome = nome;
+            this.primeiroNome = this.extrairPrimeiroNome(nome)
+      }
+
+      extrairPrimeiroNome(primeiroNome) {
+            return primeiroNome.split(" ")[0]
       }
 
       getSaldo() {
@@ -24,6 +30,14 @@ export class Conta {
     
       getDataAcesso(): Date {
             return new Date();
+      }
+
+      getNomeCompleto(): string {
+            return this.nome
+      }
+
+      getPrimeiroNome(): string {
+            return this.primeiroNome;
       }
 
       @ValidaDebito

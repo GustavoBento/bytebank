@@ -9,6 +9,7 @@ import { ValidaDebito, ValidaDeposito } from "./Decorators.js";
 import { TipoTransacao } from "./TipoTransacao.js";
 export class Conta {
     nome;
+    primeiroNome;
     saldo = Armazenador.obter("saldo") || 0;
     transacoes = Armazenador.obter(("transacoes"), (key, value) => {
         if (key === "data") {
@@ -18,12 +19,22 @@ export class Conta {
     }) || [];
     constructor(nome) {
         this.nome = nome;
+        this.primeiroNome = this.extrairPrimeiroNome(nome);
+    }
+    extrairPrimeiroNome(primeiroNome) {
+        return primeiroNome.split(" ")[0];
     }
     getSaldo() {
         return this.saldo;
     }
     getDataAcesso() {
         return new Date();
+    }
+    getNomeCompleto() {
+        return this.nome;
+    }
+    getPrimeiroNome() {
+        return this.primeiroNome;
     }
     debitar(valor) {
         this.saldo -= valor;

@@ -2,6 +2,10 @@ import Conta from "../types/Conta.js";
 import { FormatoData } from "../types/FormatoData.js";
 import { formatarMoeda, formatarData } from "../utils/formatters.js";
 const elementoRegistroTransacoesExtrato = document.querySelector(".extrato .registro-transacoes");
+const nomeCompleto = document.querySelector("#nome");
+const primeiroNome = document.querySelector("#primeiro-nome");
+nomeCompleto.textContent = Conta.getNomeCompleto();
+primeiroNome.textContent = Conta.getPrimeiroNome();
 renderizarExtrato();
 function renderizarExtrato() {
     const gruposTransacoes = Conta.getGruposTransacoes();

@@ -1,9 +1,9 @@
 {
   "name": "bytebank",
   "version": "1.0.0",
-  "main": "dist/js/index.js",
+  "main": "dist/js/main.js",
   "scripts": {
-    "start": "node dist/js/index.js",
+    "start": "node dist/js/main.js",
     "build": "tsc"
   },
   "dependencies": {

@@ -5,7 +5,6 @@
       "outDir": "./dist/js/",
       "rootDir": "./src",
       "noEmitOnError": true,
-      "strict": true,
       "esModuleInterop": true,
       "experimentalDecorators": true,
       "moduleResolution": "node"
